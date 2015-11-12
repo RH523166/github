@@ -4,7 +4,9 @@ Dr. Evert
 CompSc HW 9
 
 	#Math game
-	In this homework assignment, we are taking the math game that we did in a previous assignment and improving it. We use for loops and methods to improve this code by making it shorter and less repititive. 
+	In this homework assignment, we are taking the math game that we did in a previous 
+	assignment and improving it. We use for loops and methods to improve this code by
+	making it shorter and less repititive. 
 
 1. establish variables
 2. set the for loop
@@ -74,6 +76,14 @@ total points: 3
 Thanks for playing :)
 
 
-I could not see a use for another method so I just used the for loop so the out put is a test of the for loop and the entire system. I shortened it quite a bit, but could not figure out what to do with another method to help this program. the for loop is in place to count the rounds and within the code it changes based on the difficulty the player is at. I put the random number generator inside the loop so it would also repeat itself and give the user random numbers every round. 
+I could not see a use for another method so I just used the for
+loop so the out put is a test of the for loop and the entire system.
+I shortened it quite a bit, but could not figure out what to do with
+another method to help this program. the for loop is in place to
+count the rounds and within the code it changes based on the difficulty
+the player is at. I put the random number generator inside the loop so
+it would also repeat itself and give the user random numbers every round. 
 
-For the command prompt, i used git hub to pull down and push all my work to my repository. I merged the report, outline, and code all together to make it one single report. 
+For the command prompt, i used git hub to pull down and push all my work
+to my repository. I merged the report, outline, and code all together
+to make it one single report. 
