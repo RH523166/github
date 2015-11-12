@@ -1,184 +1,79 @@
-####Robert Harms 
-####November 3, 2015
-####Dr. Evert
-####Comsc hw 8
+Robert Harms 
+November 11, 2015
+Dr. Evert
+CompSc HW 9
 
+	#Math game
+	In this homework assignment, we are taking the math game that we did in a previous assignment and improving it. We use for loops and methods to improve this code by making it shorter and less repititive. 
 
-  This program should make a random uppercase letter. I use the while loop so it will keep generating
-  a number between 65 and 90.
+1. establish variables
+2. set the for loop
+	a. ask the question
+	b. ask for the player's answer
+	c. make an if statemnt for the correct answer
+		- give the player a point
+		- raise the difficulty
+	d. make an else statement for the incorrect answer
+		- tell them the right answer
+		- lower if difficulty if it is not the lowest
+3. game over
+	a. add up the points
+	b. thank the player for playing
 
-public class randomletter {
+####code:
+
+import java.util.Scanner;
+public class doodlebob {
 	public static void main(String[] args) {
-		
-		double letter = 0;
-		while (letter < 1 ){
-			int i = (int)(Math.random() * 100);
-			if(i >= 65 && i <= 90){
-			char myChar = (char) i;
-			System.out.print("Your letter is " + myChar);
-			letter++;
-			}
-		}
-	}
-	#####console:
-	Your letter is Y
-	
-	Your letter is J
-	
-	
-	This program is the math game that we have previously done for an assignment. It is the same as it was
-	the last time that I turned it in. 
-	
-	
-	import java.util.Scanner;
-  public class mathgame {
-	public static void main(String[] args) {
-		
-		int correctcount = 0; // score of the game
-		int count = 1; // starts a count
-		int difficulty = 1;
-		Scanner input = new Scanner(System.in); // created a scanner
-		
-		
-		
-		while (count < 5) {	
-		
-
-		
-		if ( difficulty == 1 && count < 5) { // program uses if correct count is 0
-			int number1 = (int)(Math.random() * 10); //makes two random numbers 
-			int number2 = (int)(Math.random() * 10);
-			
-			System.out.println("round " + count); // tells the player what round it is
-			System.out.println("what is " + number1 + " plus " + number2 + "?"); // asks the first question
-			int answer1 = input.nextInt(); // asks for the users answer to the question.
-			
-			if (number1 + number2 == answer1) { // checks if the answer is correct
+		int difficulty = 10; // establish variables
+		int correctcount = 0;
+		Scanner input = new Scanner(System.in); // create a scanner for input
+		for (int count = 1; count <=4; count++){ // set a for loop for 4 rounds
+			int a = (int)(Math.random() * difficulty); // establish variables inside loop so they reset each time
+			int b = (int)(Math.random() * difficulty);
+			System.out.print("round " + count + ": "); // ask questions to player
+			System.out.print("What is " + a + " plus " + b + "?");
+			int answer = input.nextInt(); // asks for players response
+			if (a + b == answer) { // checks if the answer is correct
 				System.out.println("correct!"); // tells the user that he is correct
 				correctcount++; // adds a point to the score
 				System.out.println("total points: " + correctcount);// tells the player his score
-				difficulty++;
+				difficulty *= 10; // adds the difficulty
 				
 			}
 			else {
 				System.out.println("Incorrect!"); // tells player he got it wrong
-				System.out.println(number1 + " plus " + number2 + " is " + (number1 + number2));
-				// shows the player what the right answer is
-				}
-			count++;	// adds 1 to the count so it knows what question it is on
+				System.out.println(a + " plus " + b + " is " + (a + b));
+				if (difficulty > 10) // lowers difficulty if he is higher than level one
+					difficulty /= 10;
+			}
 		}
-		
-		
-		
-		if (difficulty == 2 && count < 5) { // uses this if correctcount is 1
-			int number3 = (int)(Math.random() * 100); //makes two random numbers 
-			int number4 = (int)(Math.random() * 100);
-			
-			System.out.println("round " + count); // tells the player what round it is
-			System.out.println("what is " + number3 + " plus " + number4 + "?");// asks the harder question
-			int answer2 = input.nextInt(); // asks for the users answer to the question.
-			
-			if (number3 + number4 == answer2){ // checks if the answer is correct
-				System.out.println("Correct!");
-				correctcount++;// adds a point to the score
-				System.out.println("total points: " + correctcount); // tells the player his score
-				difficulty++;
-			}
-			else {
-				System.out.println("Incorrect!");
-				System.out.println(number3 + " plus " + number4 + " is " + (number3 + number4));
-				// shows the player what the right answer is
-				difficulty--;
-			}
-			count++; // adds 1 to the count so it knows what question it is on
-		}
-		
-		
-		
-		if (difficulty == 3 && count < 5) {
-			int number5 = (int)(Math.random() * 10); //makes two random numbers between 1-9
-			int number6 = (int)(Math.random() * 10);
-			
-			System.out.println("round " + count); // tells the player what round it is
-			System.out.println("what is " + number5 + " times " + number6 + "?");// asks the harder question
-			int answer3 = input.nextInt(); // asks for the users answer to the question.
-			
-			
-			if (number5 * number6 == answer3){ // checks if the answer is correct
-				System.out.println("Correct!");
-				correctcount++; // adds a point to the score
-				System.out.println("total points: " + correctcount); // tells the player his score
-				difficulty++;
-			}
-			else {
-				System.out.println("Incorrect!");
-				System.out.println(number5 + " times " + number6 + " is " + (number5 * number6));
-				// shows the player what the right answer is
-				difficulty--;
-			}
-			count++; // adds 1 to the count so it knows what question it is on
-		}
-		
-		
-		
-		if (difficulty == 4 && count < 5) {
-			int number7 = (int)(Math.random() * 100); //makes two random numbers
-			int number8 = (int)(Math.random() * 10);
-			
-			System.out.println("round " + count); // tells the player what round it is
-			System.out.println("what is " + number7 + " times " + number8 + "?");// asks a harder question
-			int answer4 = input.nextInt(); // asks for the users answer to the question.
-			
-			if (number7 * number8 == answer4){ // checks if the answer is correct
-				System.out.println("Correct!");
-				correctcount++; // adds a point to the score
-				difficulty++;
-				
-			}
-			else {
-				System.out.println("Incorrect!");
-				System.out.println(number7 + " times " + number8 + " is " + (number7 * number8));
-				// shows the player what the right answer is
-				difficulty--;
-			}
-			count++; // adds 1 to the count so it knows what question it is on
-		}
-		
-		
-		}
-		
-		
 		System.out.println("Game over");
 		System.out.println("total points: " + correctcount); // tells the player his final score
 		System.out.println("Thanks for playing :)"); // end of the program 
-
 	}
-
 }
 
 
-}
+####output:
 
-#####console:
-round 1
-what is 0 plus 2?
-2
+ round 1: What is 7 plus 6?13
 correct!
 total points: 1
-round 2
-what is 56 plus 13?
-69
-Correct!
+round 2: What is 83 plus 75?155
+Incorrect!
+83 plus 75 is 158
+round 3: What is 1 plus 3?4
+correct!
 total points: 2
-round 3
-what is 7 times 7?
-49
-Correct!
+round 4: What is 73 plus 67?140
+correct!
 total points: 3
-round 4
-what is 16 times 6?
-96
-Correct!
 Game over
-total points: 4
+total points: 3
 Thanks for playing :)
+
+
+I could not see a use for another method so I just used the for loop so the out put is a test of the for loop and the entire system. I shortened it quite a bit, but could not figure out what to do with another method to help this program. the for loop is in place to count the rounds and within the code it changes based on the difficulty the player is at. I put the random number generator inside the loop so it would also repeat itself and give the user random numbers every round. 
+
+For the command prompt, i used git hub to pull down and push all my work to my repository. I merged the report, outline, and code all together to make it one single report. 
