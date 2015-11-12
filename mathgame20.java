@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
-public class mathgame {
-	public static void main(String[] args) {
+public class mathgame20 {
+	public static void sub(String[] args) {
 		int difficulty = 10;
 		int correctcount = 0;
 	
@@ -27,4 +27,5 @@ public class mathgame {
 			if (difficulty > 10)
 				difficulty /= 10;
 	}
+}
 }
