@@ -1,26 +1,52 @@
 Robert Harms 
-November 11, 2015
+November 20, 2015
 Dr. Evert
-CompSc HW 9
+CompSc HW 10
 
-	#Math game
-	In this homework assignment, we are taking the math game that we did in a previous assignment and improving it. We use for loops and methods to improve this code by making it shorter and less repititive. 
+	Project 1:
+	In this homework assignment, we are using arrays and methods to sort numbers. it takes 6 numbers and sorts them from least to greatest.
 
-1. establish variables
-2. set the for loop
-	a. ask the question
-	b. ask for the player's answer
-	c. make an if statemnt for the correct answer
-		- give the player a point
-		- raise the difficulty
-	d. make an else statement for the incorrect answer
-		- tell them the right answer
-		- lower if difficulty if it is not the lowest
-3. game over
-	a. add up the points
-	b. thank the player for playing
 
 ####code:
+
+
+public class array{
+	public static void main(String[] args) {
+		System.out.println("We will sort 2, 4, 3, 1, 7, 6 "); //tells the user what we are about to sort
+		sort(); // calls on the other method to perform its task
+		System.out.println("success.");
+	}
+	static void sort(){
+		int list[] = {2, 4, 3, 1, 7, 6}; // creates an array with 6 numbers
+		int x; // create a variable
+		for(int j = 0; j < 6; j++){ // a for loop to repeat the sorting so it is done correctly	
+	
+		for(int i = 0; i < list.length - 1; i++){ // a for loop for the sorting
+			if(list[i] > list[i + 1]){ // if the first number is larger than the second
+				x = list[i + 1]; // creates a place holder for the switch
+				list[i + 1] = list[i]; // switches the two numbers
+				list[i] = x; // makes the first number become the second number
+			}
+		}
+		}
+		for(int i = 0; i < list.length; i++ ){
+			System.out.print(list[i] + " "); // outputs the numbers in a sorted order
+		 }
+}
+}
+
+output:
+We will sort 2, 4, 3, 1, 7, 6 
+1 2 3 4 6 7 success.
+
+
+	The program uses the array to hold the numbers while the for loop goes through checking and switching the numbers around making sure that they are in order from least to greatest.
+	
+	project 2:
+
+This project take the addition game and uses arrays and methods with for loops to make it better. The array was used to hold the random numbers so they could be used. The for loop was used to cycle through the question as the rounds went on. 
+
+Code:
 
 import java.util.Scanner;
 public class doodlebob {
@@ -29,8 +55,8 @@ public class doodlebob {
 		int correctcount = 0;
 		Scanner input = new Scanner(System.in); // create a scanner for input
 		for (int count = 1; count <=4; count++){ // set a for loop for 4 rounds
-			int a = (int)(Math.random() * difficulty); // establish variables inside loop so they reset each time
-			int b = (int)(Math.random() * difficulty);
+			int a = array(difficulty); // establish variables inside loop so they reset each time
+			int b = array(difficulty);
 			System.out.print("round " + count + ": "); // ask questions to player
 			System.out.print("What is " + a + " plus " + b + "?");
 			int answer = input.nextInt(); // asks for players response
@@ -52,28 +78,30 @@ public class doodlebob {
 		System.out.println("total points: " + correctcount); // tells the player his final score
 		System.out.println("Thanks for playing :)"); // end of the program 
 	}
+	public static int array(int difficulty){
+		int number[] = new int[2];
+		number[0] = (int)(Math.random() * difficulty);
+		number[1] = (int)(Math.random() * difficulty);
+		return number[1];
+	}
 }
 
+output:
 
-####output:
-
- round 1: What is 7 plus 6?13
+round 1: What is 2 plus 9?11
 correct!
 total points: 1
-round 2: What is 83 plus 75?155
+round 2: What is 59 plus 88?50
 Incorrect!
-83 plus 75 is 158
-round 3: What is 1 plus 3?4
+59 plus 88 is 147
+round 3: What is 6 plus 0?6
 correct!
 total points: 2
-round 4: What is 73 plus 67?140
+round 4: What is 46 plus 54?100
 correct!
 total points: 3
 Game over
 total points: 3
 Thanks for playing :)
 
-
-I could not see a use for another method so I just used the for loop so the out put is a test of the for loop and the entire system. I shortened it quite a bit, but could not figure out what to do with another method to help this program. the for loop is in place to count the rounds and within the code it changes based on the difficulty the player is at. I put the random number generator inside the loop so it would also repeat itself and give the user random numbers every round. 
-
-For the command prompt, i used git hub to pull down and push all my work to my repository. I merged the report, outline, and code all together to make it one single report. 
+The arrays were used with a method to create the random numbers. When called upon it sent the numbers to the main method to be used. As it repeated itself, the number would change each time it was called upon. 
